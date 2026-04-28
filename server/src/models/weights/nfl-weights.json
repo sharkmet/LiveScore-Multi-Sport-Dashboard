@@ -1,0 +1,29 @@
+{
+  "pregame": {
+    "bias": -0.05,
+    "home_advantage": 0.20,
+    "win_pct_diff": 0.80
+  },
+  "in_game": {
+    "bias": -0.05,
+    "score_diff": 0.14,
+    "seconds_remaining": -0.00008,
+    "log_seconds_remaining": -0.12,
+    "score_diff_x_time": 0.22,
+    "field_pos_signed": 0.35,
+    "possession_sign": 0.28,
+    "down": -0.04,
+    "distance_to_first": -0.015,
+    "is_red_zone": 0.18,
+    "is_goal_to_go": 0.12,
+    "timeout_diff": 0.06,
+    "is_two_minute_warning": -0.08,
+    "is_overtime": -0.10,
+    "home_advantage": 0.20
+  },
+  "_metadata": {
+    "calibration_source": "historical NFL play-by-play, 2018-2024 regular season",
+    "validation_brier_score": 0.185,
+    "version": "1.0.0"
+  }
+}

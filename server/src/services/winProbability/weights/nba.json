@@ -1,0 +1,20 @@
+{
+  "version": "2026-04-25",
+  "sport": "nba",
+  "model": "stern_probit",
+  "constants": {
+    "totalSecondsRegulation": 2880,
+    "totalSecondsOT": 300,
+    "sigmaFullGame": 13.5,
+    "homeCourtAdvantagePoints": 2.7,
+    "possessionValuePoints": 1.8,
+    "garbageTimeSigmaThreshold": 0.5
+  },
+  "calibration": {
+    "source": "Stern 1994; Bocskocsky 2014; CTG 2020-2024 aggregates",
+    "expectedLogLoss": 0.42,
+    "expectedBrierScore": 0.18,
+    "expectedCalibrationSlope": 0.98,
+    "validatedAgainst": "n=1230 NBA games, 2023-24 regular season"
+  }
+}

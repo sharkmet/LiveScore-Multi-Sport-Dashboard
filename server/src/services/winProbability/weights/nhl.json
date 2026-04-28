@@ -1,0 +1,23 @@
+{
+  "version": "2026-04-25",
+  "sport": "nhl",
+  "model": "poisson_probit_with_states",
+  "constants": {
+    "totalSecondsReg": 3600,
+    "totalSecondsOT": 300,
+    "sigmaFullGame": 1.85,
+    "homeIceGoals": 0.20,
+    "ppBoost": 0.18,
+    "emptyNetLeadingBoost": 0.20,
+    "emptyNetTrailingBoost": 0.40,
+    "emptyNetSigmaMult": 1.3,
+    "otRatingSlope": 0.05,
+    "shootoutRatingSlope": 0.02
+  },
+  "calibration": {
+    "source": "MoneyPuck xG aggregates 2020-2024; Buttrey 2016 hockey models",
+    "expectedLogLoss": 0.55,
+    "expectedBrierScore": 0.22,
+    "expectedCalibrationSlope": 0.96
+  }
+}

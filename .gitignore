@@ -1,0 +1,53 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build output
+client/dist/
+client/build/
+server/dist/
+server/build/
+
+# Environment variables (never commit secrets)
+.env
+.env.local
+.env.*.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Claude Code (internal AI instructions, not for public)
+.claude/
+CLAUDE.md
+
+# Internal project docs (PRDs, prompts, design handoffs)
+LiveScore-PRD-Revised.md
+NFL-Implementation-Prompt.md
+standings-playoffs-prompt.md
+WinProbability-ML-Model-Design.md
+WinProbability-ML-Model-Redesign-v2.md
+*.zip
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+
+# Cache
+.eslintcache
+.parcelcache
+.turbo

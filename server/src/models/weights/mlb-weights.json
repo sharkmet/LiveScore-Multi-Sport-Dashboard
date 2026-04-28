@@ -1,0 +1,26 @@
+{
+  "pregame": {
+    "bias": 0.00,
+    "home_advantage": 0.15,
+    "record_diff": 1.80,
+    "starter_era_diff": 0.12,
+    "starter_whip_diff": 0.08,
+    "starter_k9_diff": 0.04,
+    "team_ops_diff": 1.50,
+    "bullpen_era_diff": 0.06
+  },
+  "in_game": {
+    "bias": 0.0,
+    "run_diff": 0.42,
+    "run_diff_x_progress": 0.85,
+    "leverage": 0.30,
+    "home_advantage": 0.10,
+    "record_diff": 0.40,
+    "starter_quality_diff": 0.08,
+    "current_pitcher_fatigue": -0.05,
+    "base_runners_home": 0.15,
+    "base_runners_away": -0.15,
+    "momentum": 0.06,
+    "hit_diff": 0.10
+  }
+}

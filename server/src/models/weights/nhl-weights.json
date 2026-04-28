@@ -1,0 +1,25 @@
+{
+  "pregame": {
+    "bias": 0.00,
+    "home_advantage": 0.22,
+    "points_pct_diff": 2.20,
+    "goalie_sv_pct_diff": 3.50,
+    "goalie_gaa_diff": 0.25,
+    "goals_per_game_diff": 0.40,
+    "goals_against_diff": 0.35,
+    "pp_pct_diff": 0.80,
+    "pk_pct_diff": 0.60
+  },
+  "in_game": {
+    "bias": 0.0,
+    "goal_diff": 0.55,
+    "goal_diff_x_progress": 1.10,
+    "home_advantage": 0.12,
+    "points_pct_diff": 0.50,
+    "shot_diff": 0.20,
+    "power_play_state": 0.18,
+    "goalie_sv_pct_diff": 1.20,
+    "momentum": 0.08,
+    "empty_net": -0.25
+  }
+}

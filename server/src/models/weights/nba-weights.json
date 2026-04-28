@@ -1,0 +1,29 @@
+{
+  "pregame": {
+    "bias": 0.00,
+    "home_advantage": 0.18,
+    "win_pct_diff": 2.50,
+    "net_rating_diff": 0.10,
+    "ppg_diff": 0.03,
+    "opp_ppg_diff": 0.03,
+    "pace_diff": 0.005,
+    "rest_advantage": 0.06,
+    "star_player_available": 0.15
+  },
+  "in_game": {
+    "bias": 0.0,
+    "point_diff": 0.06,
+    "point_diff_x_progress": 0.12,
+    "point_diff_x_progress_sq": 0.08,
+    "home_advantage": 0.10,
+    "win_pct_diff": 0.60,
+    "fg_pct_diff": 1.80,
+    "three_pt_diff": 0.60,
+    "ft_rate_diff": 0.30,
+    "rebound_diff": 0.15,
+    "turnover_diff": 0.20,
+    "momentum": 0.02,
+    "foul_trouble": -0.04,
+    "timeout_factor": 0.01
+  }
+}

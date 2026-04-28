@@ -1,0 +1,19 @@
+{
+  "version": "2026-04-25",
+  "sport": "mlb",
+  "model": "api_priority_with_table_fallback",
+  "constants": {
+    "logisticFallbackCoefficients": {
+      "intercept": 0.0,
+      "runDiff": 0.55,
+      "inning": 0.12,
+      "runDiffXInning": 0.04
+    }
+  },
+  "calibration": {
+    "source": "Tom Tango Win Expectancy Tables; Baseball Reference WE",
+    "tableCoverage": "inning 1-9, runDiff -10 to +10, all base/out states",
+    "expectedLogLoss": 0.48,
+    "expectedBrierScore": 0.20
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "pregame": {
+    "intercept": 0.10,
+    "homeFieldAdvantage": 0.25,
+    "winPctDiff": 1.50,
+    "starterEraDiff": -0.15,
+    "starterWhipDiff": -0.12,
+    "starterFipDiff": -0.09,
+    "starterK9Diff": 0.04
+  },
+  "inGame": {
+    "intercept": 0.0,
+    "runDiff": 0.70,
+    "gameProgress": -0.50,
+    "outsRemaining": 0.02,
+    "baseRunnerValue": 0.28,
+    "currentPitcherEra": -0.10,
+    "currentBatterWoba": 0.22,
+    "runDiffXgameProgress": 0.90
+  }
+}

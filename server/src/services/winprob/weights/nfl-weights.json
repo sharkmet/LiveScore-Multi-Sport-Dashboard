@@ -1,0 +1,22 @@
+{
+  "b_0": -0.05,
+  "w_score_diff": 0.14,
+  "w_seconds": -0.00008,
+  "w_log_seconds": -0.12,
+  "w_score_x_time": 0.22,
+  "w_field_pos": 0.35,
+  "w_possession": 0.28,
+  "w_down": -0.04,
+  "w_distance": -0.015,
+  "w_red_zone": 0.18,
+  "w_goal_to_go": 0.12,
+  "w_timeout": 0.06,
+  "w_two_min": -0.08,
+  "w_ot": -0.10,
+  "w_home_field": 0.20,
+  "_metadata": {
+    "calibration_source": "historical NFL play-by-play, 2018-2024 regular season",
+    "validation_brier_score": 0.185,
+    "version": "1.0.0"
+  }
+}
