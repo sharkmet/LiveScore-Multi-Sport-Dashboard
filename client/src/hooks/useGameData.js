@@ -1,9 +1,5 @@
 import { useReducer, useEffect, useRef, useState } from 'react'
-import { mockGames, mockGamesByDay } from '../mocks/games.js'
-import { mockAlerts } from '../mocks/alerts.js'
 import { useWebSocket } from './useWebSocket.js'
-
-const MOCK_FALLBACK_TIMEOUT_MS = 5_000
 
 const STATUS_PRIORITY = {
   live: 0,
@@ -89,23 +85,6 @@ export function useGameData() {
   const [newAlerts, setNewAlerts] = useState([])
   const { status: wsStatus, lastMessage } = useWebSocket()
   const connectedRef = useRef(false)
-  const fallbackTimerRef = useRef(null)
-  const usingMockRef = useRef(false)
-
-  // 5s fallback: if WS never delivers a snapshot, load mock data
-  useEffect(() => {
-    fallbackTimerRef.current = setTimeout(() => {
-      if (!connectedRef.current) {
-        console.warn('[useGameData] WS snapshot not received — loading mock data')
-        usingMockRef.current = true
-        dispatch({ type: 'INIT_GAMES_BY_DAY', gamesByDay: mockGamesByDay })
-        dispatch({ type: 'INIT_ALERTS', alerts: mockAlerts })
-        setIsLoading(false)
-      }
-    }, MOCK_FALLBACK_TIMEOUT_MS)
-
-    return () => clearTimeout(fallbackTimerRef.current)
-  }, [])
 
   // Handle incoming WebSocket messages
   useEffect(() => {
@@ -113,8 +92,6 @@ export function useGameData() {
 
     if (lastMessage.type === 'snapshot') {
       connectedRef.current = true
-      usingMockRef.current = false
-      clearTimeout(fallbackTimerRef.current)
       setIsLoading(false)
 
       // Support both old shape (games: []) and new shape (games: { yesterday, today, tomorrow })
@@ -152,9 +129,7 @@ export function useGameData() {
     (a, b) => new Date(b.timestamp) - new Date(a.timestamp)
   )
 
-  const connectionStatus = usingMockRef.current && wsStatus !== 'connected'
-    ? 'mock'
-    : wsStatus
+  const connectionStatus = wsStatus
 
   return {
     games,
