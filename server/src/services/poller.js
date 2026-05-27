@@ -11,6 +11,26 @@ import { getGame, setGame, getAllTodayGames, setDayGames, setPlayoffBracket } fr
 import { winProbService } from '../models/index.js'
 import { fetchPlayoffs } from './standings.js'
 
+/**
+ * Returns a Date object for the given schedule day, based on Eastern Time.
+ * Sports leagues (MLB, NHL, NBA, NFL) all schedule games in Eastern Time.
+ * Render's server runs UTC — without this, after midnight UTC the server
+ * fetches the wrong date and today's games appear under "yesterday".
+ *
+ * Uses 4 PM UTC (noon EDT / 11 AM EST) as a stable midday anchor so that
+ * getFullYear/getMonth/getDate in UTC always match the ET calendar date.
+ *
+ * @param {'yesterday'|'today'|'tomorrow'} day
+ * @returns {Date}
+ */
+function etDateForDay(day) {
+  const etTodayStr = new Date().toLocaleDateString('en-CA', { timeZone: 'America/New_York' })
+  const [y, m, d] = etTodayStr.split('-').map(Number)
+  const offset = day === 'yesterday' ? -1 : day === 'tomorrow' ? 1 : 0
+  // 4 PM UTC = noon EDT (UTC-4) — safe midday anchor for all adapters
+  return new Date(Date.UTC(y, m - 1, d + offset, 16, 0, 0))
+}
+
 const MLB_LIVE_INTERVAL_MS      = 5_000        // 5s — MLB has no client clock
 const CLOCK_LIVE_INTERVAL_MS    = 10_000       // 10s — client countdown handles clock
 const SCHEDULE_POLL_INTERVAL_MS = 300_000      // 5min when no live games
@@ -99,7 +119,7 @@ function nextTickMs() {
 
 async function pollTodayGames(adapter, onUpdate) {
   try {
-    const games = await adapter.fetchSchedule(new Date(), 'today')
+    const games = await adapter.fetchSchedule(etDateForDay('today'), 'today')
     const updatedGames = []
 
     for (const game of games) {
@@ -172,9 +192,7 @@ async function fetchStaticDays(onUpdate) {
   // Collect games from ALL adapters for each day before storing,
   // so adapters don't overwrite each other's data.
   for (const day of ['yesterday', 'tomorrow']) {
-    const date = new Date()
-    if (day === 'yesterday') date.setDate(date.getDate() - 1)
-    if (day === 'tomorrow')  date.setDate(date.getDate() + 1)
+    const date = etDateForDay(day)
 
     const allGames = []
     for (const adapter of adapters) {
