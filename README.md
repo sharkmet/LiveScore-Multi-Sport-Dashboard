@@ -2,7 +2,8 @@
 
 A real-time sports dashboard covering MLB, NHL, NBA, and NFL. Live game data is polled from official/public APIs and pushed to a React frontend over WebSocket. Each sport has a fully custom game detail view and a statistical win probability model.
 
-View it here at: https://live-score-multi-sport-dashboard.vercel.app/
+View it here at: https://live-score-multi-sport-dashboard.vercel.app/ 
+It may take some time to load the statistics, around 10-15 sec on startup
 ---
 
 ## Features
